@@ -52,7 +52,7 @@ jobs:
         host: ${{ secrets.SERVER_HOST }}          # e.g. 8.tcp.us-cal-1.ngrok.io
         username: ${{ secrets.SERVER_USER }}      # your macOS username
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        port: 18484                               # your ngrok port (update if changes)
+        port: 17112                               # your ngrok port (update if changes)
         script: |
           echo "✅ Connected to macOS via ngrok"
           docker pull ${{ secrets.DOCKER_USERNAME }}/springboot-app:latest
