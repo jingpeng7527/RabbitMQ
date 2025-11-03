@@ -14,5 +14,6 @@ spring:
           max-attempts: 5
           multiplier: 2.0
     ssl:
-      enabled: true
+      enabled: false
       algorithm: TLSv1.2
+
