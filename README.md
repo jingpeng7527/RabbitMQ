@@ -1,1 +1,1 @@
-# RabbitMQ
+# RabbitMQ + CICD pipeline just for learning
