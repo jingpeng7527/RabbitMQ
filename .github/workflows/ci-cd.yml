@@ -54,9 +54,17 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 17112                               # your ngrok port (update if changes)
         script: |
+          export PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"
           echo "✅ Connected to macOS via ngrok"
+          if ! command -v docker &> /dev/null; then
+            echo "❌ Docker not found, aborting deployment"
+            exit 1
+          fi
+          docker --version
+          docker ps
           docker pull ${{ secrets.DOCKER_USERNAME }}/springboot-app:latest
           docker stop springboot-app || true
           docker rm springboot-app || true
           docker run -d -p 8080:8080 --name springboot-app ${{ secrets.DOCKER_USERNAME }}/springboot-app:latest
           docker ps
+          
